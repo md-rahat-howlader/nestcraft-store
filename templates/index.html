@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NestCraft | Handcrafted Modern Furniture Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF8F5; color: #1C1917; }
+        .font-serif-brand { font-family: 'Playfair Display', serif; }
+        .page-section { display: none; animation: fadeIn 0.35s ease-in-out; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-stone-900 text-amber-200 text-xs py-2 px-4 text-center tracking-wide">
+        FREE DELIVERY ACROSS DHAKA ON ORDERS OVER ৳25,000 | DIRECT HOTLINE: <a href="tel:01314461665" class="underline font-semibold text-white">01314461665</a>
+    </div>
+
+    <!-- Main Navigation Header (5 Pages) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <button onclick="navigateTo('home')" class="flex items-center gap-2.5 text-left">
+                <div class="w-10 h-10 bg-amber-800 text-white rounded-lg flex items-center justify-center shadow">
+                    <i class="fa-solid fa-couch text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-serif-brand text-2xl font-bold text-stone-900 tracking-tight">Nest<span class="text-amber-700">Craft</span></span>
+                    <p class="text-[10px] uppercase tracking-widest text-stone-500 -mt-1">Fine Furniture</p>
+                </div>
+            </button>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-700">
+                <button onclick="navigateTo('home')" id="nav-home" class="nav-link text-amber-800 font-bold border-b-2 border-amber-800 pb-1">Home</button>
+                <button onclick="navigateTo('shop')" id="nav-shop" class="nav-link hover:text-amber-800 transition pb-1">Shop (50 Items)</button>
+                <button onclick="navigateTo('categories')" id="nav-categories" class="nav-link hover:text-amber-800 transition pb-1">Categories</button>
+                <button onclick="navigateTo('about')" id="nav-about" class="nav-link hover:text-amber-800 transition pb-1">About Us</button>
+                <button onclick="navigateTo('contact')" id="nav-contact" class="nav-link hover:text-amber-800 transition pb-1">Contact</button>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCart(true)" class="relative bg-stone-100 hover:bg-amber-100 text-stone-800 px-4 py-2.5 rounded-full flex items-center gap-2 transition font-semibold text-sm">
+                    <i class="fa-solid fa-bag-shopping text-amber-800"></i>
+                    <span class="hidden sm:inline">Cart</span>
+                    <span id="cart-count" class="bg-amber-800 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-stone-800 text-2xl p-1">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-200 px-6 py-4 space-y-3 font-medium text-stone-700">
+            <button onclick="navigateTo('home'); toggleMobile()" class="block w-full text-left py-1.5 hover:text-amber-800">1. Home</button>
+            <button onclick="navigateTo('shop'); toggleMobile()" class="block w-full text-left py-1.5 hover:text-amber-800">2. Shop All (50 Items)</button>
+            <button onclick="navigateTo('categories'); toggleMobile()" class="block w-full text-left py-1.5 hover:text-amber-800">3. Categories</button>
+            <button onclick="navigateTo('about'); toggleMobile()" class="block w-full text-left py-1.5 hover:text-amber-800">4. About Us</button>
+            <button onclick="navigateTo('contact'); toggleMobile()" class="block w-full text-left py-1.5 hover:text-amber-800">5. Contact (Md. Rahat Howlader)</button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- PAGE 1: HOME -->
+        <section id="page-home" class="page-section active">
+            <div class="relative bg-stone-900 text-white overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" alt="Luxury Interior" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
+                    <span class="inline-block bg-amber-700/90 text-amber-100 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-5">Artisan Crafted Since 2020</span>
+                    <h1 class="font-serif-brand text-4xl sm:text-6xl font-bold max-w-2xl leading-tight mb-6">
+                        Elevate Your Living Space with Timeless Woodcraft
+                    </h1>
+                    <p class="text-stone-200 text-lg max-w-xl mb-8 leading-relaxed">
+                        Discover 50+ exclusive furniture designs crafted from seasoned Burma Teak, Oak, and Velvet. Built for comfort, engineered for generations.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="navigateTo('shop')" class="bg-amber-700 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition flex items-center gap-2">
+                            Explore 50+ Designs <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button onclick="navigateTo('contact')" class="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white border border-white/30 font-semibold px-8 py-4 rounded-lg transition">
+                            Custom Order Inquiry
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-b border-stone-200">
+                <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <i class="fa-solid fa-tree text-2xl text-amber-800 mb-2"></i>
+                        <h4 class="font-bold text-stone-900">100% Seasoned Wood</h4>
+                        <p class="text-xs text-stone-500">Chittagong Teak & Oak</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-shield-halved text-2xl text-amber-800 mb-2"></i>
+                        <h4 class="font-bold text-stone-900">Up to 15-Year Warranty</h4>
+                        <p class="text-xs text-stone-500">Termite & Structure Guarantee</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-truck-fast text-2xl text-amber-800 mb-2"></i>
+                        <h4 class="font-bold text-stone-900">Nationwide Delivery</h4>
+                        <p class="text-xs text-stone-500">Safe White-Glove Setup</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-headset text-2xl text-amber-800 mb-2"></i>
+                        <h4 class="font-bold text-stone-900">Direct Consultation</h4>
+                        <p class="text-xs text-stone-500">Call: 01314461665</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+                    <div>
+                        <span class="text-amber-800 font-semibold text-sm uppercase tracking-wider">Curated Selection</span>
+                        <h2 class="font-serif-brand text-3xl font-bold text-stone-900 mt-1">Signature Masterpieces</h2>
+                    </div>
+                    <button onclick="navigateTo('shop')" class="mt-4 sm:mt-0 text-amber-800 font-bold hover:underline flex items-center gap-1">
+                        View All 50 Products <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+                <div id="home-featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7"></div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: SHOP (ALL 50 ITEMS) -->
+        <section id="page-shop" class="page-section">
+            <div class="bg-stone-100 border-b border-stone-200 py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 class="font-serif-brand text-3xl sm:text-4xl font-bold text-stone-900">Complete Furniture Catalog</h1>
+                    <p class="text-stone-600 mt-2">Browse all 50 unique designs. Click on any furniture item to view detailed specifications, dimensions, and warranty.</p>
+                    
+                    <div class="mt-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+                        <div class="flex flex-wrap gap-2" id="shop-filter-buttons">
+                            <button onclick="filterProducts('All', this)" class="filter-btn bg-amber-800 text-white px-4 py-2 rounded-full text-sm font-semibold">All (50)</button>
+                            <button onclick="filterProducts('Living Room', this)" class="filter-btn bg-white text-stone-700 hover:bg-amber-50 border border-stone-300 px-4 py-2 rounded-full text-sm font-semibold">Living Room (12)</button>
+                            <button onclick="filterProducts('Bedroom', this)" class="filter-btn bg-white text-stone-700 hover:bg-amber-50 border border-stone-300 px-4 py-2 rounded-full text-sm font-semibold">Bedroom (12)</button>
+                            <button onclick="filterProducts('Dining', this)" class="filter-btn bg-white text-stone-700 hover:bg-amber-50 border border-stone-300 px-4 py-2 rounded-full text-sm font-semibold">Dining (10)</button>
+                            <button onclick="filterProducts('Office', this)" class="filter-btn bg-white text-stone-700 hover:bg-amber-50 border border-stone-300 px-4 py-2 rounded-full text-sm font-semibold">Office (8)</button>
+                            <button onclick="filterProducts('Decor', this)" class="filter-btn bg-white text-stone-700 hover:bg-amber-50 border border-stone-300 px-4 py-2 rounded-full text-sm font-semibold">Decor (8)</button>
+                        </div>
+                        <div class="relative w-full md:w-72">
+                            <input type="text" id="search-input" onkeyup="searchProducts()" placeholder="Search sofa, bed, table..." class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-300 bg-white text-sm focus:outline-none focus:border-amber-800">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-stone-400 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <p id="product-count-label" class="text-sm text-stone-500 mb-6 font-medium">Showing 50 unique designs</p>
+                <div id="shop-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7"></div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: CATEGORIES -->
+        <section id="page-categories" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-amber-800 font-semibold text-sm uppercase tracking-wider">Shop By Room</span>
+                    <h1 class="font-serif-brand text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Explore Our 5 Curated Collections</h1>
+                    <p class="text-stone-600 mt-3">Select a category below to filter furniture pieces tailored specifically for each corner of your home or workspace.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div onclick="openCategory('Living Room')" class="group cursor-pointer relative rounded-2xl overflow-hidden shadow-md h-80">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">12 Unique Designs</span>
+                            <h3 class="font-serif-brand text-2xl font-bold">Living Room</h3>
+                            <p class="text-sm text-stone-200 mt-1">Sofas, Lounge Chairs, Coffee Tables & TV Units</p>
+                        </div>
+                    </div>
+                    <div onclick="openCategory('Bedroom')" class="group cursor-pointer relative rounded-2xl overflow-hidden shadow-md h-80">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">12 Unique Designs</span>
+                            <h3 class="font-serif-brand text-2xl font-bold">Bedroom</h3>
+                            <p class="text-sm text-stone-200 mt-1">King & Queen Beds, Wardrobes, Dressers & Nightstands</p>
+                        </div>
+                    </div>
+                    <div onclick="openCategory('Dining')" class="group cursor-pointer relative rounded-2xl overflow-hidden shadow-md h-80">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">10 Unique Designs</span>
+                            <h3 class="font-serif-brand text-2xl font-bold">Dining Room</h3>
+                            <p class="text-sm text-stone-200 mt-1">Live-Edge Tables, Marble Sets, Chairs & Sideboards</p>
+                        </div>
+                    </div>
+                    <div onclick="openCategory('Office')" class="group cursor-pointer relative rounded-2xl overflow-hidden shadow-md h-80 md:col-span-1">
+                        <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">8 Unique Designs</span>
+                            <h3 class="font-serif-brand text-2xl font-bold">Home & Corporate Office</h3>
+                            <p class="text-sm text-stone-200 mt-1">Executive Desks, Standing Desks & Ergonomic Chairs</p>
+                        </div>
+                    </div>
+                    <div onclick="openCategory('Decor')" class="group cursor-pointer relative rounded-2xl overflow-hidden shadow-md h-80 md:col-span-2">
+                        <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">8 Unique Designs</span>
+                            <h3 class="font-serif-brand text-2xl font-bold">Lighting & Home Decor</h3>
+                            <p class="text-sm text-stone-200 mt-1">Floor Lamps, Wool Rugs, Wall Art & Wooden Timepieces</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: ABOUT US -->
+        <section id="page-about" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-amber-800 font-semibold text-sm uppercase tracking-wider">Our Story & Craftsmanship</span>
+                        <h1 class="font-serif-brand text-3xl sm:text-5xl font-bold text-stone-900 mt-2 leading-tight">
+                            Crafting Comfort & Character for Modern Homes
+                        </h1>
+                        <p class="text-stone-600 mt-6 leading-relaxed">
+                            Founded with a passion for authentic woodworking and contemporary architecture, <strong>NestCraft</strong> bridges traditional Bengali woodcraft with modern Scandinavian minimalism.
+                        </p>
+                        <p class="text-stone-600 mt-4 leading-relaxed">
+                            Every single piece among our 50+ signature designs undergoes kiln-drying treatment, precision joinery, and eco-friendly lacquer finishing to ensure lasting beauty across generations.
+                        </p>
+                        <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-stone-200">
+                            <div>
+                                <p class="font-serif-brand text-3xl font-bold text-amber-800">50+</p>
+                                <p class="text-xs text-stone-500 mt-1">Exclusive Designs</p>
+                            </div>
+                            <div>
+                                <p class="font-serif-brand text-3xl font-bold text-amber-800">1,200+</p>
+                                <p class="text-xs text-stone-500 mt-1">Happy Homes</p>
+                            </div>
+                            <div>
+                                <p class="font-serif-brand text-3xl font-bold text-amber-800">100%</p>
+                                <p class="text-xs text-stone-500 mt-1">Seasoned Timber</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=600&q=80" class="rounded-2xl shadow-lg h-72 w-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80" class="rounded-2xl shadow-lg h-72 w-full object-cover mt-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: CONTACT US -->
+        <section id="page-contact" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-amber-800 font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
+                    <h1 class="font-serif-brand text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Contact NestCraft Flagship Store</h1>
+                    <p class="text-stone-600 mt-2">Have questions about custom sizes, bulk corporate orders, or delivery? Reach out directly.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    <div class="bg-stone-900 text-white rounded-2xl p-8 shadow-xl flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif-brand text-2xl font-bold text-amber-300 mb-6">Direct Contact Details</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-amber-800/40 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-user-tie text-amber-300"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-stone-400 uppercase tracking-wider">Founder & Lead Consultant</p>
+                                        <p class="text-lg font-bold text-white">Md. Rahat Howlader</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-amber-800/40 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-phone-volume text-amber-300"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-stone-400 uppercase tracking-wider">Hotline & WhatsApp</p>
+                                        <a href="tel:01314461665" class="text-lg font-bold text-amber-300 hover:underline">01314461665</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-amber-800/40 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-location-dot text-amber-300"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-stone-400 uppercase tracking-wider">Showroom & Workshop</p>
+                                        <p class="text-sm text-stone-200">Hemayetpur, Savar, Dhaka, Bangladesh</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-amber-800/40 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-clock text-amber-300"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-stone-400 uppercase tracking-wider">Opening Hours</p>
+                                        <p class="text-sm text-stone-200">Saturday – Thursday: 10:00 AM – 9:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 pt-6 border-t border-stone-700">
+                            <a href="https://wa.me/8801314461665" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-2xl p-8 border border-stone-200 shadow-sm">
+                        <h3 class="font-serif-brand text-2xl font-bold text-stone-900 mb-6">Send Us a Message</h3>
+                        <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-sm font-semibold text-stone-700 mb-1">Your Full Name *</label>
+                                    <input type="text" id="contact-name" required placeholder="Enter your name" class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-amber-800 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-stone-700 mb-1">Phone Number *</label>
+                                    <input type="tel" id="contact-phone" required placeholder="01XXXXXXXXX" class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-amber-800 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-stone-700 mb-1">Subject</label>
+                                <input type="text" id="contact-subject" placeholder="Custom Furniture / Order Inquiry" class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-amber-800 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-stone-700 mb-1">Message *</label>
+                                <textarea id="contact-message" rows="4" required placeholder="Write your message or furniture requirements..." class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-amber-800 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="bg-amber-800 hover:bg-amber-700 text-white font-bold px-8 py-3.5 rounded-lg transition shadow">
+                                Send Message
+                            </button>
+                            <p id="contact-feedback" class="text-sm font-semibold mt-2 hidden"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT DETAILS VIEW -->
+        <section id="page-details" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <button onclick="navigateTo('shop')" class="inline-flex items-center gap-2 text-sm font-semibold text-stone-600 hover:text-amber-800 mb-8">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Catalog
+                </button>
+                <div id="product-details-content" class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden"></div>
+                <div class="mt-16">
+                    <h3 class="font-serif-brand text-2xl font-bold text-stone-900 mb-6">You May Also Like</h3>
+                    <div id="related-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SHOPPING CART & CHECKOUT DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+        <div onclick="toggleCart(false)" class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col">
+            <div class="p-6 border-b border-stone-200 flex items-center justify-between">
+                <h3 class="font-serif-brand text-xl font-bold text-stone-900">Your Shopping Cart</h3>
+                <button onclick="toggleCart(false)" class="text-stone-400 hover:text-stone-800 text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4"></div>
+
+            <div id="cart-footer" class="p-6 border-t border-stone-200 bg-stone-50">
+                <div class="flex justify-between text-base font-bold text-stone-900 mb-4">
+                    <span>Total Amount:</span>
+                    <span id="cart-total" class="text-amber-800">৳0</span>
+                </div>
+
+                <form id="checkout-form" onsubmit="placeOrder(event)" class="space-y-3">
+                    <input type="text" id="cust-name" required placeholder="Your Full Name *" class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-stone-300 bg-white">
+                    <input type="tel" id="cust-phone" required placeholder="Mobile Number (e.g. 017XXXXXXXX) *" class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-stone-300 bg-white">
+                    <input type="text" id="cust-address" required placeholder="Delivery Address *" class="w-full px-3.5 py-2.5 text-sm rounded-lg border border-stone-300 bg-white">
+                    <button type="submit" id="checkout-btn" class="w-full bg-amber-800 hover:bg-amber-700 text-white font-bold py-3.5 rounded-lg transition shadow">
+                        Confirm Order (Cash on Delivery)
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 pt-14 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-stone-800">
+            <div>
+                <span class="font-serif-brand text-2xl font-bold text-white">Nest<span class="text-amber-500">Craft</span></span>
+                <p class="text-sm mt-3 leading-relaxed">Premium handcrafted wooden and contemporary furniture designed for modern Bangladeshi homes.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="navigateTo('home')" class="hover:text-amber-400">Home</button></li>
+                    <li><button onclick="navigateTo('shop')" class="hover:text-amber-400">Shop (50 Items)</button></li>
+                    <li><button onclick="navigateTo('categories')" class="hover:text-amber-400">Categories</button></li>
+                    <li><button onclick="navigateTo('about')" class="hover:text-amber-400">About Us</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Collections</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="openCategory('Living Room')" class="hover:text-amber-400">Living Room</button></li>
+                    <li><button onclick="openCategory('Bedroom')" class="hover:text-amber-400">Bedroom</button></li>
+                    <li><button onclick="openCategory('Dining')" class="hover:text-amber-400">Dining Sets</button></li>
+                    <li><button onclick="openCategory('Office')" class="hover:text-amber-400">Office Furniture</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Contact Us</h4>
+                <p class="text-sm text-white font-semibold">Md. Rahat Howlader</p>
+                <p class="text-sm text-amber-400 font-bold mt-1"><i class="fa-solid fa-phone mr-1"></i> 01314461665</p>
+                <p class="text-xs mt-2">Hemayetpur, Savar, Dhaka</p>
+            </div>
+        </div>
+        <div class="text-center text-xs text-stone-500 pt-6">
+            &copy; 2026 NestCraft Furniture. Developed by Md. Rahat Howlader. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Clean JSON Data Block (No VS Code Red Underline) -->
+    <script id="products-data" type="application/json">{{ products | tojson | safe }}</script>
+
+    <script>
+        const ALL_PRODUCTS = JSON.parse(document.getElementById('products-data').textContent);
+        let cart = JSON.parse(localStorage.getItem('nestcraft_cart')) || [];
+
+        function formatPrice(num) {
+            return '৳' + num.toLocaleString('en-IN');
+        }
+
+        function createProductCard(p) {
+            return `
+                <div class="group bg-white rounded-xl border border-stone-200 overflow-hidden shadow-xs hover:shadow-xl transition duration-300 flex flex-col">
+                    <div onclick="viewProductDetails(${p.id})" class="cursor-pointer relative h-60 overflow-hidden bg-stone-100">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        ${p.badge ? `<span class="absolute top-3 left-3 bg-stone-900/90 text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded">${p.badge}</span>` : ''}
+                        <span class="absolute bottom-3 right-3 bg-white/95 text-stone-800 text-xs font-semibold px-2.5 py-1 rounded shadow-xs opacity-0 group-hover:opacity-100 transition">
+                            View Details <i class="fa-solid fa-eye ml-1"></i>
+                        </span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-800">${p.category}</span>
+                            <h3 onclick="viewProductDetails(${p.id})" class="cursor-pointer font-bold text-stone-900 text-base mt-1 hover:text-amber-800 transition line-clamp-1">${p.name}</h3>
+                            <p class="text-xs text-stone-500 mt-1"><i class="fa-solid fa-layer-group mr-1"></i>${p.material}</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-stone-900">${formatPrice(p.price)}</span>
+                            <div class="flex gap-1.5">
+                                <button onclick="addToCart(${p.id})" title="Add to Cart" class="bg-stone-100 hover:bg-stone-200 text-stone-800 px-3 py-2 rounded-lg text-xs font-bold transition">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </button>
+                                <button onclick="buyNow(${p.id})" class="bg-amber-800 hover:bg-amber-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition">
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initStore() {
+            document.getElementById('home-featured-grid').innerHTML = ALL_PRODUCTS.slice(0, 8).map(createProductCard).join('');
+            renderShopGrid(ALL_PRODUCTS);
+            updateCartUI();
+        }
+
+        function renderShopGrid(list) {
+            document.getElementById('product-count-label').innerText = `Showing ${list.length} unique designs`;
+            document.getElementById('shop-products-grid').innerHTML = list.map(createProductCard).join('');
+        }
+
+        function navigateTo(pageName) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(`page-${pageName}`).classList.add('active');
+
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                btn.classList.remove('text-amber-800', 'font-bold', 'border-b-2', 'border-amber-800');
+            });
+            const activeNav = document.getElementById(`nav-${pageName}`);
+            if (activeNav) {
+                activeNav.classList.add('text-amber-800', 'font-bold', 'border-b-2', 'border-amber-800');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobile() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function filterProducts(cat, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.className = "filter-btn bg-white text-stone-700 hover:bg-amber-50 border border-stone-300 px-4 py-2 rounded-full text-sm font-semibold";
+            });
+            if (btnEl) {
+                btnEl.className = "filter-btn bg-amber-800 text-white px-4 py-2 rounded-full text-sm font-semibold";
+            }
+            const filtered = cat === 'All' ? ALL_PRODUCTS : ALL_PRODUCTS.filter(p => p.category === cat);
+            renderShopGrid(filtered);
+        }
+
+        function openCategory(cat) {
+            navigateTo('shop');
+            const filtered = ALL_PRODUCTS.filter(p => p.category === cat);
+            renderShopGrid(filtered);
+        }
+
+        function searchProducts() {
+            const q = document.getElementById('search-input').value.toLowerCase();
+            const filtered = ALL_PRODUCTS.filter(p => 
+                p.name.toLowerCase().includes(q) || 
+                p.category.toLowerCase().includes(q) || 
+                p.material.toLowerCase().includes(q)
+            );
+            renderShopGrid(filtered);
+        }
+
+        function viewProductDetails(id) {
+            const p = ALL_PRODUCTS.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('product-details-content').innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="bg-stone-100 h-96 lg:h-full">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 sm:p-12 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <span class="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full">${p.category}</span>
+                                <span class="text-emerald-700 text-xs font-bold"><i class="fa-solid fa-circle-check"></i> In Stock</span>
+                            </div>
+                            <h1 class="font-serif-brand text-3xl sm:text-4xl font-bold text-stone-900 mt-4">${p.name}</h1>
+                            <p class="text-3xl font-bold text-amber-800 mt-4">${formatPrice(p.price)}</p>
+                            <p class="text-stone-600 mt-5 leading-relaxed">${p.description}</p>
+
+                            <div class="mt-8 border-t border-b border-stone-200 py-5 space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-stone-500">Primary Material:</span>
+                                    <span class="font-bold text-stone-900">${p.material}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-stone-500">Dimensions (L x W x H):</span>
+                                    <span class="font-bold text-stone-900">${p.dimensions}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-stone-500">Structural Warranty:</span>
+                                    <span class="font-bold text-stone-900">${p.warranty}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-stone-500">Direct Order Hotline:</span>
+                                    <span class="font-bold text-amber-800">01314461665 (Md. Rahat Howlader)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                            <button onclick="addToCart(${p.id})" class="flex-1 bg-stone-900 hover:bg-stone-800 text-white font-bold py-4 rounded-xl transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                            <button onclick="buyNow(${p.id})" class="flex-1 bg-amber-800 hover:bg-amber-700 text-white font-bold py-4 rounded-xl transition shadow-lg">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const related = ALL_PRODUCTS.filter(item => item.category === p.category && item.id !== p.id).slice(0, 4);
+            document.getElementById('related-products-grid').innerHTML = related.map(createProductCard).join('');
+            navigateTo('details');
+        }
+
+        function toggleCart(open) {
+            const drawer = document.getElementById('cart-drawer');
+            if (open) drawer.classList.remove('hidden');
+            else drawer.classList.add('hidden');
+        }
+
+        function addToCart(id) {
+            const item = ALL_PRODUCTS.find(p => p.id === id);
+            const existing = cart.find(c => c.id === id);
+            if (existing) existing.qty += 1;
+            else cart.push({ ...item, qty: 1 });
+
+            saveCart();
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function buyNow(id) {
+            addToCart(id);
+        }
+
+        function changeQty(id, delta) {
+            const idx = cart.findIndex(c => c.id === id);
+            if (idx > -1) {
+                cart[idx].qty += delta;
+                if (cart[idx].qty <= 0) cart.splice(idx, 1);
+                saveCart();
+                updateCartUI();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('nestcraft_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('cart-count').innerText = count;
+            document.getElementById('cart-total').innerText = formatPrice(total);
+
+            const container = document.getElementById('cart-items-container');
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-16 text-stone-400"><i class="fa-solid fa-basket-shopping text-4xl mb-3"></i><p>Your cart is empty.</p></div>`;
+                document.getElementById('cart-footer').classList.add('hidden');
+            } else {
+                document.getElementById('cart-footer').classList.remove('hidden');
+                container.innerHTML = cart.map(item => `
+                    <div class="flex gap-4 bg-stone-50 p-3 rounded-xl border border-stone-200">
+                        <img src="${item.image}" class="w-16 h-16 rounded-lg object-cover">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-sm text-stone-900 line-clamp-1">${item.name}</h4>
+                            <p class="text-xs font-bold text-amber-800 mt-0.5">${formatPrice(item.price)}</p>
+                            <div class="flex items-center gap-3 mt-2">
+                                <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 rounded bg-white border border-stone-300 text-xs font-bold">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 rounded bg-white border border-stone-300 text-xs font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        async function placeOrder(e) {
+            e.preventDefault();
+            const btn = document.getElementById('checkout-btn');
+            btn.disabled = true;
+            btn.innerText = "Processing Order...";
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const payload = {
+                customer_name: document.getElementById('cust-name').value,
+                phone: document.getElementById('cust-phone').value,
+                address: document.getElementById('cust-address').value,
+                items: cart.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
+                total_amount: total
+            };
+
+            try {
+                const res = await fetch('/api/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.status === 'success') {
+                    alert(`Order Confirmed!\nOrder ID: ${data.order_id}\nThank you for shopping with NestCraft! For queries call: 01314461665`);
+                    cart = [];
+                    saveCart();
+                    updateCartUI();
+                    toggleCart(false);
+                    document.getElementById('checkout-form').reset();
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                alert("Network error. Please try again.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Confirm Order (Cash on Delivery)";
+            }
+        }
+
+        async function submitContactForm(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('contact-feedback');
+            const payload = {
+                name: document.getElementById('contact-name').value,
+                phone: document.getElementById('contact-phone').value,
+                subject: document.getElementById('contact-subject').value,
+                message: document.getElementById('contact-message').value
+            };
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                feedback.innerText = data.message;
+                feedback.className = "text-sm font-semibold mt-2 text-emerald-700 block";
+                document.getElementById('contact-form').reset();
+            } catch (err) {
+                feedback.innerText = "Failed to send message.";
+                feedback.className = "text-sm font-semibold mt-2 text-red-600 block";
+            }
+        }
+
+        initStore();
+    </script>
+</body>
+</html>
